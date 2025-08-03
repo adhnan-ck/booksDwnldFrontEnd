@@ -10,7 +10,7 @@ import AddPdfForm from "./pages/AddPdfForm";
 import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { AllBooks } from "./pages/AllBooks";
 import About from "./pages/About";
-import Signin1 from "./pages/SignIn1";
+import Signin1 from "./pages/Signin1";
 
 const queryClient = new QueryClient();
 
