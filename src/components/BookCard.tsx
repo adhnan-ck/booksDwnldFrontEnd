@@ -1,19 +1,26 @@
-import { Book } from "@/data/books";
+
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Download } from "lucide-react";
+import { Download, CalendarArrowUpIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-interface BookCardProps {
-  book: Book;
+interface Book {
+  id: number;
+  title: string;
+  author: string;
+  imageUrl: string;
+  description: string;
+  genre: string;
+  publishedAt: string;
+  pdfUrl: string;
 }
 
-export const BookCard = ({ book }: BookCardProps) => {
+export const BookCard = ({ book }: { book: Book }) => {
   return (
     <Link to={`/book/${book.id}`}>
       <Card className="group overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 bg-card border-border">
         <div className="relative overflow-hidden">
           <img
-            src={book.cover}
+            src={book.imageUrl}
             alt={`${book.title} cover`}
             className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
           />
@@ -21,12 +28,12 @@ export const BookCard = ({ book }: BookCardProps) => {
           <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="flex items-center justify-between text-white text-sm">
               <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 fill-accent text-accent" />
-                <span>{book.rating}</span>
+                <CalendarArrowUpIcon className="w-4 h-4 fill-accent text-accent" />
+                <span>uploaded on {book.publishedAt}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Download className="w-4 h-4" />
-                <span>{book.downloadSize}</span>
+                <span>Free Download</span>
               </div>
             </div>
           </div>
