@@ -11,7 +11,6 @@ import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { AllBooks } from "./pages/AllBooks";
 import About from "./pages/About";
 import Signin1 from "./pages/Signin1";
-
 const queryClient = new QueryClient();
 
 const App = () => (

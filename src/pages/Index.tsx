@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { TrendingUp, Users, Download } from "lucide-react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "@/components/Loader";
 
 
@@ -63,8 +63,8 @@ const Index = () => {
             <Button size="lg" className="px-8" onClick={() => navigate("/allBooks")}>
               Browse Library
             </Button>
-            <Button variant="outline" size="lg" onClick={() => window.location.href = 'https://donate.unrwa.org/int/en/general'}>
-               Donate
+            <Button variant="outline" size="lg"  onClick={() => navigate("/request-book")}>
+               Request Book
             </Button>
           </div>
         </div>
@@ -144,7 +144,9 @@ const Index = () => {
             Your gateway to Self-Help Books.
           </p>
           <div className="flex justify-center gap-6 text-sm">
-            <a href="/about" className="hover:text-accent transition-colors">About</a>
+          <Link to="/about" className="hover:text-accent transition-colors">
+  About
+</Link>
             <a href="#" className="hover:text-accent transition-colors">Contact</a>
             <a href="#" className="hover:text-accent transition-colors">Privacy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms</a>

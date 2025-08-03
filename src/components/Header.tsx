@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export const Header = () => {
-
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -26,19 +25,27 @@ export const Header = () => {
           </Link>
           
           <div className="flex items-center space-x-4">
-            <div className="relative hidden sm:block">
+            {/* Search - always visible, responsive width */}
+            <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <form onSubmit={handleSubmit}>
-              <Input
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search books..."
-                className="pl-10 w-64 bg-background border-border"
-              />
+                <Input
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Search..."
+                  className="pl-10 w-28 sm:w-64 bg-background border-border"
+                />
               </form>
             </div>
-            <Button variant="outline" size="sm" onClick={() => navigate("/request-book")}>
-              Request Book
+            
+            {/* Donate button - only visible on larger screens */}
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="hidden sm:block"
+              onClick={() => window.location.href = 'https://donate.unrwa.org/int/en/general'}
+            >
+              Donate
             </Button>
           </div>
         </div>
